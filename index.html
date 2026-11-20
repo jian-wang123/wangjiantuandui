@@ -30,7 +30,6 @@
     color:inherit;
     text-decoration:none;
   }
-
   /* 公告通用 */
   .notice-wrap{
     background:var(--notice-bg);
@@ -60,7 +59,6 @@
   .notice-below{
     margin-bottom:24px;
   }
-
   /* 顶部导航 */
   header{
     position:sticky;
@@ -358,29 +356,29 @@
 <div class="notice-wrap notice-top">
   <div class="notice-inner" id="notice-top"></div>
 </div>
-
 <header>
   <nav class="nav">
-    <a class="brand" href="#top">忘见<span>团队</span></a>
+    <a class="brand" href=" ">忘见<span>团队</span></a >
     <div class="nav-links">
-      <a href="#about">团队介绍</a>
-      <a href="#members">成员</a>
-      <a href="#show">综艺专区</a>
-      <a href="#works">作品花絮</a>
+      <a href="#about">团队介绍</a >
+      <a href="#members">成员</a >
+      <a href="#show">综艺专区</a >
+      <a href="#works">作品花絮</a >
+      <a href="https://games.wangjiantuandui.xyz" target="_blank">游戏专区</a >
     </div>
   </nav>
 </header>
 <div class="hero" id="top">
   <span class="tag">自制综艺出品团队</span>
   <h1>忘见团队</h1>
-  <p id="hero-slogan"></p>
-  <a class="music-button" href="https://163cn.tv/blpgEBiR" target="_blank">🎵 收听单曲《无畏的冒险》</a>
+  <p id="hero-slogan"></p >
+  <a class="music-button" href="https://163cn.tv/blpgEBiR" target="_blank">🎵 收听单曲《无畏的冒险》</a >
 </div>
 <section id="about">
   <div class="sec-title">团队介绍</div>
   <div class="sec-sub">认识我们，了解团队的方向与态度</div>
   <div class="card intro-card">
-    <p class="lead" id="team-intro"></p>
+    <p class="lead" id="team-intro"></p >
   </div>
 </section>
 <section id="members">
@@ -393,7 +391,7 @@
   <div class="sec-sub">团队自制综艺《挑战大世界》</div>
   <div class="card show-card">
     <h3 id="show-title"></h3>
-    <p id="show-intro"></p>
+    <p id="show-intro"></p >
     <div class="episode-list" id="episode-list"></div>
   </div>
 </section>
@@ -402,14 +400,12 @@
   <div class="sec-sub">节目片段、幕后花絮与最新动态</div>
   <div class="work-grid" id="work-list"></div>
 </section>
-
-<!-- 作品花絮下方：最新播报公告 -->
+<!-- 最新播报公告 -->
 <section>
   <div class="notice-wrap notice-below">
     <div class="notice-inner" id="notice-below"></div>
   </div>
 </section>
-
 <footer>
   <div class="footer-inner">
     <h3>关注我们</h3>
@@ -424,7 +420,6 @@
       url:"https://mp.weixin.qq.com/s/OYeQA3atXnaaJCV0tf2A1w"
     }
   ];
-
   function renderNotice(containerId){
     const el = document.getElementById(containerId);
     if(!el) return;
@@ -432,14 +427,13 @@
     NOTICES.forEach(item=>{
       el.innerHTML += `
         <div class="notice-item">
-          📢 <a href="${item.url}" target="_blank">${item.title}</a>
+          📢 <a href="${item.url}" target="_blank">${item.title}</a >
         </div>
       `;
     })
   }
   renderNotice("notice-top");
   renderNotice("notice-below");
-
   const TEAM = {
     slogan: "我们是忘见团队，专注打造自制综艺《挑战大世界》，用镜头记录每一次挑战与成长。",
     intro: "忘见团队是一支独立的自制综艺团队，负责策划、拍摄与后期制作。目前团队正在筹备自制综艺《挑战大世界》，后续将陆续推出节目正片、幕后花絮与相关动态。"
@@ -479,6 +473,7 @@
   document.getElementById("show-title").textContent = "《" + SHOW.title + "》";
   document.getElementById("show-intro").textContent = SHOW.intro;
 
+  //渲染成员
   const memberList = document.getElementById("member-list");
   MEMBERS.forEach(m => {
     const div = document.createElement("div");
@@ -496,11 +491,12 @@
             <div class="member-role">${m.role}</div>
           </div>
         </div>
-        <p>${m.desc}</p>`;
+        <p>${m.desc}</p >`;
     }
     memberList.appendChild(div);
   });
 
+  //渲染综艺剧集
   const episodeList = document.getElementById("episode-list");
   SHOW.episodes.forEach(ep => {
     const row = document.createElement("div");
@@ -509,6 +505,7 @@
     episodeList.appendChild(row);
   });
 
+  //渲染作品花絮
   const workList = document.getElementById("work-list");
   WORKS.forEach(w => {
     const div = document.createElement("div");
@@ -520,11 +517,12 @@
       div.innerHTML = `
         <div class="work-cover">🎬</div>
         <h3>${w.title}</h3>
-        <p>${w.desc}</p>`;
+        <p>${w.desc}</p >`;
     }
     workList.appendChild(div);
   });
 
+  //渲染关注渠道
   const channelList = document.getElementById("channel-list");
   CHANNELS.forEach(c => {
     const div = document.createElement("div");
@@ -534,7 +532,7 @@
         <a href="${c.url}" target="_blank">
           <span class="platform">${c.platform}</span>
           <span class="account">${c.account}</span>
-        </a>`;
+        </a >`;
     } else {
       div.innerHTML = `
         <span class="platform">${c.platform}</span>
