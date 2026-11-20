@@ -15,6 +15,8 @@
     --line:#e5e9f0;
     --radius:14px;
     --notice-bg:#dbeafe;
+    --warn:#dc2626;
+    --warn-soft:#fef2f2;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{
@@ -262,6 +264,56 @@
     font-size:26px;
     margin-bottom:12px;
   }
+
+  /*====官网内游戏专区卡片样式（和游戏大厅完全一致）====*/
+  .game-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:20px;
+  }
+  .game-card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    transition:0.24s ease;
+    cursor:pointer;
+  }
+  .game-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 20px rgba(37,99,235,0.12);
+  }
+  .card-cover{
+    height:160px;
+    background:var(--primary-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:72px;
+  }
+  .card-body{
+    padding:20px;
+  }
+  .tag-horror{
+    display:inline-block;
+    background:var(--warn-soft);
+    color:var(--warn);
+    border:1px solid #fecaca;
+    border-radius:999px;
+    font-size:12px;
+    padding:3px 8px;
+    margin-bottom:8px;
+  }
+  .card-body h3{
+    font-size:18px;
+    margin-bottom:6px;
+  }
+  .card-body p{
+    font-size:14px;
+    color:var(--text-sub);
+  }
+  /*====结束====*/
+
   /* 底部渠道 */
   footer{
     border-top:1px solid var(--line);
@@ -336,6 +388,10 @@
     .channel-grid{
       grid-template-columns:1fr;
     }
+    .card-cover{
+      height:140px;
+      font-size:56px;
+    }
   }
   /* 电脑端 */
   @media(min-width:720px){
@@ -400,6 +456,26 @@
   <div class="sec-sub">节目片段、幕后花絮与最新动态</div>
   <div class="work-grid" id="work-list"></div>
 </section>
+
+<!--====官网新增：游戏专区板块，点击卡片跳游戏总大厅====-->
+<section id="games">
+  <div class="sec-title">游戏专区</div>
+  <div class="sec-sub">忘见团队自制网页游戏，前往游戏大厅查看全部</div>
+  <div class="game-grid">
+    <div class="game-card">
+      <a href="https://games.wangjiantuandui.xyz" target="_blank">
+        <div class="card-cover">🎮</div>
+        <div class="card-body">
+          <span class="tag-horror">微恐</span>
+          <h3>找到我</h3>
+          <p>细思极恐悬疑文字解谜</p >
+        </div>
+      </a >
+    </div>
+  </div>
+</section>
+<!--====结束====-->
+
 <!-- 最新播报公告 -->
 <section>
   <div class="notice-wrap notice-below">
