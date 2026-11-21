@@ -30,7 +30,6 @@
     color:inherit;
     text-decoration:none;
   }
-  /* 公告通用 */
   .notice-wrap{
     background:var(--notice-bg);
     border:1px solid var(--line);
@@ -50,7 +49,6 @@
   .notice-item a:hover{
 text-decoration:underline;
   }
-  /* 顶部公告，无边框圆角 */
   .notice-top{
     border:none;
     border-bottom:1px solid var(--line);
@@ -59,7 +57,6 @@ text-decoration:underline;
   .notice-below{
     margin-bottom:24px;
   }
-  /* 顶部导航 */
   header{
     position:sticky;
     top:0;
@@ -100,7 +97,6 @@ text-decoration:underline;
   .nav-links a:hover{
     color:var(--primary);
   }
-  /* Hero 区 */
   .hero{
     max-width:1000px;
     margin:0 auto;
@@ -141,7 +137,6 @@ padding:48px 16px 32px;
     background:#1d4ed8;
     transform:scale(1.04);
   }
-  /* 通用区块 */
   section{
     max-width:1000px;
     margin:0 auto;
@@ -171,7 +166,6 @@ border:1px solid var(--line);
     color:var(--text-sub);
     font-size:14px;
   }
-  /* 团队介绍 */
   .intro-card{
     display:flex;
     flex-direction:column;
@@ -181,7 +175,6 @@ border:1px solid var(--line);
     font-size:16px;
     color:var(--text);
   }
-  /* 成员区 */
   .member-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -228,7 +221,6 @@ color:var(--text-sub);
     font-size:26px;
     margin-bottom:6px;
   }
-  /* 综艺专区 */
   .show-card{
     background:linear-gradient(135deg,#ffffff 0%,var(--primary-soft) 100%);
   }
@@ -252,7 +244,6 @@ color:var(--text-sub);
     color:var(--text-sub);
     font-size:13px;
   }
-  /* 作品花絮 */
   .work-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -269,7 +260,6 @@ color:var(--primary);
     font-size:26px;
     margin-bottom:12px;
   }
-  /* 游戏专区 */
   .game-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -294,7 +284,6 @@ color:var(--primary);
     font-size:28px;
     margin-bottom:12px;
   }
-  /* APP 下载 */
   .download-btn{
     display:inline-block;
     margin-top:14px;
@@ -303,6 +292,7 @@ color:var(--primary);
     color:#fff;
     border-radius:10px;
     font-weight:600;
+    font-size:16px;
     transition:0.2s ease;
   }
   .download-btn:hover{
@@ -314,7 +304,6 @@ color:var(--primary);
     color:var(--text-sub);
     line-height:1.7;
   }
-  /* 底部渠道 */
   footer{
     border-top:1px solid var(--line);
 margin-top:30px;
@@ -364,7 +353,6 @@ margin-top:30px;
     font-size:13px;
     margin-top:26px;
   }
-  /* 手机端 */
   @media(max-width:640px){
     .nav{
       flex-direction:column;
@@ -395,7 +383,6 @@ gap:10px 14px;
       grid-template-columns:1fr;
     }
   }
-  /* 电脑端 */
   @media(min-width:720px){
     .member-grid{
       grid-template-columns:repeat(3,1fr);
@@ -413,7 +400,7 @@ gap:10px 14px;
 </style>
 </head>
 <body>
-<!-- 顶部公告保留 -->
+
 <div class="notice-wrap notice-top">
   <div class="notice-inner" id="notice-top"></div>
 </div>
@@ -462,31 +449,24 @@ gap:10px 14px;
 <div class="sec-sub">节目片段、幕后花絮与最新动态</div>
   <div class="work-grid" id="work-list"></div>
 </section>
-
-<!-- ==========新增游戏专区板块========== -->
 <section id="games">
   <div class="sec-title">游戏专区</div>
   <div class="sec-sub">忘见团队自制小游戏，更多游戏持续开发中</div>
   <div class="game-grid" id="game-list"></div>
 </section>
-
-<!-- ==========APP 下载板块========== -->
 <section id="app">
   <div class="sec-title">APP 下载</div>
   <div class="sec-sub">忘见团队安卓客户端</div>
   <div class="card">
     <h3>📱 忘见团队 APP v0.0.2</h3>
     <p>配套安卓应用，打开直接跳转忘见团队官网。</p>
-    <a class="download-btn" target="_blank" rel="noopener"
-       href="https://github.com/jian-wang123/wangjiantuandui/releases/download/v0.0.2/APP-0.0.2.apk.1">获取安装包</a>
+    <a class="download-btn" href="./down.html">获取安装包</a>
     <div class="download-info">
       <strong>安装：</strong>仅安卓；安装时允许未知来源应用。<br>
       <strong>更新：</strong>新版在此更新链接，重新下载覆盖安装。
     </div>
   </div>
 </section>
-
-<!-- 作品花絮下方：最新播报公告 -->
 <section>
   <div class="notice-wrap notice-below">
     <div class="notice-inner" id="notice-below"></div>
@@ -541,19 +521,14 @@ gap:10px 14px;
       { title: "节目筹备中", status: "敬请期待" }
     ]
   };
-
-  // =========游戏数组，以后新增游戏直接在这里加对象========
   const GAMES = [
     {
       name:"找到我",
       desc:"忘见团队自制小游戏",
-      url:"https://games.wangjiantuandui.xyz",
+      url:"https://zdw.wangjiantuandui.xyz",
       icon:"🎮"
     }
-    //复制下面格式即可新增更多游戏
-    //,{name:"游戏2",desc:"简介",url:"地址",icon:"🎯"}
   ];
-
   const WORKS = [
     { placeholder: true, text: "正片片段 · 更新中" },
     { placeholder: true, text: "幕后花絮 · 更新中" },
@@ -566,13 +541,10 @@ gap:10px 14px;
     { platform: "网易云音乐", account: "挑战大世界", url: "https://163cn.tv/blpgEBiR" },
 { platform: "哔哩哔哩",   account: "挑战大世界T", url: "https://b23.tv/6dv5r0z" }
   ];
-
   document.getElementById("hero-slogan").textContent = TEAM.slogan;
   document.getElementById("team-intro").textContent = TEAM.intro;
   document.getElementById("show-title").textContent = "《" + SHOW.title + "》";
   document.getElementById("show-intro").textContent = SHOW.intro;
-
-  //渲染成员
   const memberList = document.getElementById("member-list");
   MEMBERS.forEach(m => {
     const div = document.createElement("div");
@@ -594,8 +566,6 @@ gap:10px 14px;
 }
     memberList.appendChild(div);
   });
-
-  //渲染综艺剧集
   const episodeList = document.getElementById("episode-list");
   SHOW.episodes.forEach(ep => {
     const row = document.createElement("div");
@@ -603,8 +573,6 @@ gap:10px 14px;
     row.innerHTML = `<span>${ep.title}</span><span class="ep-status">${ep.status}</span>`;
     episodeList.appendChild(row);
   });
-
-  //渲染作品花絮
   const workList = document.getElementById("work-list");
   WORKS.forEach(w => {
     const div = document.createElement("div");
@@ -620,8 +588,6 @@ gap:10px 14px;
     }
     workList.appendChild(div);
   });
-
-  //渲染游戏列表
   const gameList = document.getElementById("game-list");
   GAMES.forEach(g=>{
     const div = document.createElement("div");
@@ -631,12 +597,9 @@ gap:10px 14px;
         <div class="game-cover">${g.icon}</div>
         <h3>${g.name}</h3>
         <p>${g.desc}</p>
-      </a>
-    `;
+      </a>`;
     gameList.appendChild(div);
   });
-
-  //渲染关注渠道
   const channelList = document.getElementById("channel-list");
   CHANNELS.forEach(c => {
     const div = document.createElement("div");
